@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="edu">
+	<typeAlias alias="edu" type="kr.co.dstinfo.DSEDU.cop.edu.service.Edu" />
+	<typeAlias alias="eduVO" type="kr.co.dstinfo.DSEDU.cop.edu.service.EduVO" />
+	<resultMap id="eduVOMap" class="kr.co.dstinfo.DSEDU.cop.edu.service.EduVO">
+    	<result property="eduNo" column="EDU_NO"/>
+    	<result property="eduNm" column="EDU_NM"/>
+    	<result property="siteId" column="SITE_ID"/>
+    	<result property="startGradation" column="START_GRADATION"/>
+    	<result property="endGradation" column="END_GRADATION"/>
+    	<result property="eduMainFileNm" column="EDU_MAIN_FILE_NM"/>
+    	<result property="eduLogoFileNm" column="EDU_LOGO_FILE_NM"/>
+    	<result property="statusCode" column="STATUS_CODE"/>
+    	<result property="frstRegisterPnttm" column="FRST_REGISTER_PNTTM"/>
+    	<result property="frstRegisterId" column="FRST_REGISTER_ID"/>
+    	<result property="lastUpdusrPnttm" column="LAST_UPDUSR_PNTTM"/>
+    	<result property="lastUpdusrId" column="LAST_UPDUSR_ID"/>
+    </resultMap>
+    <resultMap id="eduMap" class="kr.co.dstinfo.DSEDU.cop.edu.service.Edu">
+    	<result property="eduNo" column="EDU_NO"/>
+    	<result property="eduNm" column="EDU_NM"/>
+    </resultMap>
+    <select id="eduDAO.selectEduList" parameterClass="eduVO" resultMap="eduVOMap">
+		SELECT
+		  *
+		FROM tn_edu
+		WHERE SITE_ID = #siteId#
+		<dynamic>
+			<isNotNull property="searchKrwd">
+				<isEqual prepend="AND" property="searchCnd" compareValue="all">
+					(EDU_NM LIKE '%$searchKrwd$%')
+				</isEqual>
+				<isEqual prepend="AND" property="searchCnd" compareValue="eduNm">
+					(EDU_NM LIKE '%$searchKrwd$%')
+				</isEqual>
+			</isNotNull>
+		</dynamic>
+		ORDER BY FRST_REGISTER_PNTTM DESC
+		LIMIT #firstIndex#, #lastIndex#
+	</select>
+	<select id="eduDAO.selectEduTotCnt" parameterClass="eduVO" resultClass="Integer">
+		SELECT COUNT(*) AS CNT FROM tn_edu
+		WHERE SITE_ID = #siteId#
+		<dynamic>
+			<isNotNull property="searchKrwd">
+				<isEqual prepend="AND" property="searchCnd" compareValue="all">
+					(EDU_NM LIKE '%$searchKrwd$%')
+				</isEqual>
+				<isEqual prepend="AND" property="searchCnd" compareValue="eduNm">
+					(EDU_NM LIKE '%$searchKrwd$%')
+				</isEqual>
+			</isNotNull>
+		</dynamic>
+	</select>
+	<select id="eduDAO.selectEduCommonList" parameterClass="edu" resultMap="eduMap">
+		SELECT
+		  *
+		FROM tn_edu
+		ORDER BY EDU_NM DESC
+	</select>
+	<select id="eduDAO.selectEdu" parameterClass="eduVO" resultMap="eduVOMap">
+		SELECT
+		  *
+		FROM tn_edu
+		WHERE EDU_NO = #eduNo#
+	</select>
+    <insert id="eduDAO.insertEdu" parameterClass="eduVO">
+		INSERT INTO tn_edu (
+		   EDU_NM,SITE_ID,START_GRADATION,END_GRADATION,EDU_MAIN_FILE_NM,EDU_LOGO_FILE_NM,FRST_REGISTER_PNTTM,FRST_REGISTER_ID
+		) VALUES (
+			#eduNm#, #siteId#, #startGradation#, #endGradation#,  #eduMainFileNm#, #eduLogoFileNm#,#frstRegisterPnttm#, #frstRegisterId#
+		)
+	</insert>
+	<update id="eduDAO.updateEdu" parameterClass="eduVO">
+		UPDATE tn_edu SET
+			EDU_NM = #eduNm#,
+			SITE_ID = #siteId#,
+			START_GRADATION = #startGradation#,
+			END_GRADATION = #endGradation#,
+			<dynamic>
+				<isNotNull property="eduMainFileNm">
+						EDU_MAIN_FILE_NM = #eduMainFileNm#,
+				</isNotNull>
+				<isNotNull property="eduLogoFileNm">
+						EDU_LOGO_FILE_NM = #eduLogoFileNm#,
+				</isNotNull>
+				<isNotNull property="statusCode">
+						 STATUS_CODE =  #statusCode#,
+				</isNotNull>
+		    </dynamic>
+			LAST_UPDUSR_PNTTM = #lastUpdusrPnttm#,
+			LAST_UPDUSR_ID = #lastUpdusrId#
+		WHERE EDU_NO = #eduNo#
+	</update>
+	<delete id="eduDAO.deleteEdu" parameterClass="eduVO">
+		DELETE FROM tn_edu WHERE EDU_NO = #eduNo#
+	</delete>
+</sqlMap>

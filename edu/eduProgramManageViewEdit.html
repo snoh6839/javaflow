@@ -1,0 +1,785 @@
+<!doctype html>
+<html class="has-tab-navigation header-dark">
+
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>디에스티 pms - 미디어관리</title>
+    <meta name="keywords" content="HTML5 Admin Template" />
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light"
+        rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css" />
+
+    <link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="assets/vendor/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/vendor/jquery-ui/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="assets/vendor/morris.js/morris.css" />
+    <link rel="stylesheet" href="assets/vendor/elusive-icons/css/elusive-icons.css" />
+    <link rel="stylesheet" href="assets/vendor/select2/css/select2.css" />
+    <link rel="stylesheet" href="assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+    <link rel="stylesheet" href="assets/vendor/jstree/themes/default/style.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" href="assets/vendor/dropzone/basic.css" />
+    <link rel="stylesheet" href="assets/vendor/dropzone/dropzone.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-markdown/css/bootstrap-markdown.min.css" />
+    <link rel="stylesheet" href="assets/vendor/summernote/summernote.css" />
+    <link rel="stylesheet" href="assets/vendor/codemirror/lib/codemirror.css" />
+    <link rel="stylesheet" href="assets/vendor/codemirror/theme/monokai.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+
+    <!-- Head Libs -->
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+
+</head>
+
+<body>
+    <section class="body">
+
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="/index.html" class="logo">
+                    <img src="assets/images/mine/logo_dst_pms.png" height="35" alt="Porto Admin" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
+                    data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+
+                <form action="pages-search-results.html" class="search nav-form">
+                    <div class="input-group input-search">
+                        <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <img src="assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle"
+                                data-lock-picture="assets/images/!logged-user.jpg" />
+                        </figure>
+                        <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+                            <span class="name">name 님 , 환영합니다</span>
+                            <span class="role">관리자</span>
+                        </div>
+
+                        <i class="fa custom-caret"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled">
+                            <li class="divider"></li>
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="pages-signin.html"><i
+                                        class="fa fa-power-off"></i> 로그아웃</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+            <div class="tab-navigation collapse">
+                <nav>
+                    <ul class="nav nav-pills">
+                        <li class="dropdown">
+                            <a href="/index.html">
+                                <i class="fa fa-home" aria-hidden="true"></i>홈
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/selectUserList.html"><i class="fa fa-address-book" aria-hidden="true"></i>사용자
+                                관리</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/framePhotoManageView.html" class="dropdown-toggle"><i class="fa fa-copy"
+                                    aria-hidden="true"></i>미디어 관리</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="/framePhotoManageView.html">사진 관리</a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="/framePhotoManageView.html">영상 관리</a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="/selectRawList.html">파일 관리</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/selectPhotoRegistRequestList.html" class="dropdown-toggle"><i class="fa fa-tasks"
+                                    aria-hidden="true"></i>요청 관리</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="/selectPhotoRegistRequestList.html" class="dropdown-toggle">사진 등록 요청</a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-toggle">원본 사진 요청</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="selectPhotoDownloadHistoryList.html" class="dropdown-toggle"><i class="fa fa-tasks"
+                                    aria-hidden="true"></i>다운로드 이력</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="selectPhotoDownloadHistoryList.html" class="dropdown-toggle">사진 다운로드 이력</a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="selectOriginalPhotoDownloadHistoryList.html" class="dropdown-toggle">원본 사진
+                                        다운로드 이력</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="selectPhotoStatsView.html" class="dropdown-toggle">통합통계</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="selectPhotoStatsView.html" class="dropdown-toggle">
+                                        사진 통계
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="selectPhotoReqStatsView.html">
+                                        원본 사진 요청
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-folder.html">
+                                        사진 다운로드
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="tables-basic.html">
+                                                다운로드 통계
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="tables-advanced.html">
+                                                사용용도별
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-toggle">
+                                        원본사진 다운로드
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-toggle">
+                                        접속
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="extra-changelog.html">
+                                                일별
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                월별
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                년별
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                브라우저별
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                운영체제별
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-expanded nav-active">
+                            <a href="eduProgramManageView.html" class="dropdown-toggle">에듀</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="eduProgramManageView.html">
+                                        프로그램관리
+                                    </a>
+                                    <!-- <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="eduProgramManageViewAdd.html">
+                                                프로그램추가
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="eduProgramManageViewEdit.html">
+                                                프로그램수정
+                                            </a>
+                                        </li>
+                                    </ul> -->
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="eduProgramManagePhotoList.html" >
+                                        프로그램 사진 관리
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="eduProgramManageCurry.html">
+                                        프로그램 커리큘럼 관리
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="updateMailServerView.html" class="dropdown-toggle">설정</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu dropdown">
+                                    <a href="updateMailServerView.html" class="dropdown-toggle">
+                                        메일설정
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="updateMailServerView.html">
+                                                메일 서버
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="updateMailPhotoView.html">
+                                                메일 내용 관리
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                     <a href="selectStorageList.html" class="dropdown-toggle">
+                                        스토리지
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailbox-folder.html">
+                                        DB 백업
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-toggle">
+                                        저작권 라이선스
+                                    </a>
+                                </li>
+                                <li class="dropdown-submenu dropdown">
+                                    <a class="dropdown-toggle">
+                                        사진 설정
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="extra-changelog.html">
+                                                이미지 추출
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                EXIF
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                GPS
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="extra-ajax-made-easy.html">
+                                                워터마크
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <aside id="sidebar-left" class="sidebar-left">
+                <div class="nano has-scrollbar">
+                    <div class="nano-content" tabindex="0" style="right: -15px;">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li class="dropdown">
+                                    <a href="/index.html">
+                                        <i class="fa fa-home" aria-hidden="true"></i>홈
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="/selectUserList.html"><i class="fa fa-address-book"
+                                            aria-hidden="true"></i>사용자 관리</a>
+                                </li>
+                                <li class="nav-parent">
+                                    <a><i class="fa fa-copy" aria-hidden="true"></i>미디어 관리</a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="/framePhotoManageView.html">사진 관리</a>
+                                        </li>
+                                        <li>
+                                            <a href="/framePhotoManageView.html">영상 관리</a>
+                                        </li>
+                                        <li class="nav-parent">
+                                            <a href="/selectRawList.html">파일 관리</a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a href="/selectRawList.html">
+                                                        RAW 관리
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/selectRawList.html">
+                                                        PDF 관리
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent">
+                                    <a href="/selectPhotoRegistRequestList.html"><i class="fa fa-tasks"
+                                            aria-hidden="true"></i>요청 관리</a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a>사진 등록 요청</a>
+                                        </li>
+                                        <li>
+                                            <a>원본 사진 요청</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent">
+                                    <a><i class="fa fa-tasks" aria-hidden="true"></i>다운로드 이력</a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a>사진 다운로드 이력</a>
+                                        </li>
+                                        <li>
+                                            <a>원본 사진 다운로드 이력</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent">
+                                    <a>통합통계</a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a>
+                                                사진 통계
+                                            </a>
+                                        </li>
+                                        <li class="nav-parent">
+                                            <a>
+                                                원본 사진 요청
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a>
+                                                        요청통계
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        요청자별
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        사용용도별
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-parent">
+                                            <a>
+                                                사진 다운로드
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a>
+                                                        다운로드 통계
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        사용용도별
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-toggle">
+                                                원본사진 다운로드
+                                            </a>
+                                        </li>
+                                        <li class="nav-parent">
+                                            <a class="dropdown-toggle">
+                                                접속
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a href="extra-changelog.html">
+                                                        일별
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="extra-ajax-made-easy.html">
+                                                        월별
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="extra-ajax-made-easy.html">
+                                                        년별
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="extra-ajax-made-easy.html">
+                                                        브라우저별
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="extra-ajax-made-easy.html">
+                                                        운영체제별
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent">
+                                    <a>설정</a>
+                                    <ul class="nav nav-children">
+                                        <li class="nav-parent">
+                                            <a>
+                                                메일설정
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a>
+                                                        메일 서버
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        사진 보내기 메일 내용
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        다운로드 메일 내용
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                스토리지
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                DB 백업
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a>
+                                                저작권 라이선스
+                                            </a>
+                                        </li>
+                                        <li class="nav-parent">
+                                            <a>
+                                                사진 설정
+                                            </a>
+                                            <ul class="nav nav-children">
+                                                <li>
+                                                    <a>
+                                                        이미지 추출
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        EXIF
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        GPS
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        워터마크
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </nav>
+
+                    </div>
+
+                    <script>
+                        // Maintain Scroll Position
+                        if (typeof localStorage !== 'undefined') {
+                            if (localStorage.getItem('sidebar-left-position') !== null) {
+                                var initialPosition = localStorage.getItem('sidebar-left-position'),
+                                    sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+                                sidebarLeft.scrollTop = initialPosition;
+                            }
+                        }
+                    </script>
+
+
+                    <div class="nano-pane" style="opacity: 1; visibility: visible;">
+                        <div class="nano-slider" style="height: 372px; transform: translate(0px, 0px);"></div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <section role="main" class="content-body tab-menu-opened">
+                <header class="page-header page-header-left-breadcrumb">
+                    <div class="right-wrapper">
+                        <ol class="breadcrumbs">
+                            <li>
+                                <a href="index.html">
+                                    <i class="fa fa-home"> 홈</i>
+                                </a>
+                            </li>
+                            <li><span>에듀</span></li>
+                            <li><span>프로그램관리</span></li>
+                        </ol>
+                    </div>
+                </header>
+
+                <!-- start: page -->
+                <section class="panel">
+                    <!-- <header class="panel-heading"> -->
+                    <header class="panel-heading">
+                        <div class="panel-actions">
+                            <div class="mb-md">
+                                <button id="addToTable" class="btn btn-primary">수정 저장 <i class="fa fa-save"></i></button>
+                            </div>
+                        </div>
+                        <h2 class="panel-title">프로그램 수정</h2>
+                    </header>
+                    <div class="panel-body">
+                        <form class="form-horizontal form-bordered" method="get">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">프로그램명</label>
+                                <div class="col-md-6">
+                                        <p>팀빌딩</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">프로그램로고</label>
+                                <div class="col-md-6">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="input-append">
+                                            <div class="uneditable-input">
+                                                <i class="fa fa-file fileupload-exists"></i>
+                                                <span class="fileupload-preview"></span>
+                                            </div>
+                                            <span class="btn btn-default btn-file">
+                                                <span class="fileupload-exists">파일변경</span>
+                                                <span class="fileupload-new">파일선택</span>
+                                                <input type="file">
+                                            </span>
+                                            <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">그라데이션 시작컬러</label>
+                                <div class="col-md-6">
+                                    <div class="input-group color colorpicker-element" data-plugin-colorpicker="">
+                                        <span class="input-group-addon"><i style="background-color: rgb(25, 65, 92);"></i></span>
+                                        <input type="text" class="form-control" value="#0088cc">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">그라데이션 끝컬러</label>
+                                <div class="col-md-6">
+                                    <div class="input-group color colorpicker-element" data-plugin-colorpicker="">
+                                        <span class="input-group-addon"><i style="background-color: rgb(25, 65, 92);"></i></span>
+                                        <input type="text" class="form-control" value="#0088cc">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tags-input-multiple" class="col-md-3 control-label">프로그램키워드</label>
+                                <div class="col-md-6">
+                                    <select
+                                        id="tags-input-multiple" multiple="" data-role="tagsinput" data-tag-class="label label-primary"
+                                        style="display: none;">
+                                        <option value="팀워크" selected="selected">팀워크</option>
+                                        <option value="인성교육" selected="selected">인성교육</option>
+                                        <option value="성취" selected="selected">성취</option>
+                                        <option value="왕따없는학교" selected="selected">왕따없는학교</option>
+                                        <option value="배려" selected="selected">배려</option>
+                                        <option selected="" value="협력">협력</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="inputDefault">프로그램설명타이틀</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="inputDefault" value="나의 아이디어를 내 손으로 직접 만들어 보자 ">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="inputDefault">프로그램설명</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="inputDefault" value="레고를 이용해서 직접 스토리나 캐릭터, 건축물 등을 동료들과 함께 만들면서 소통능력을 기르고창작 활동을 통해서 창의력과 문제해결능력이 증진됩니다 ">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="inputDefault">목적및기대효과</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="inputDefault" value="참여 학생들끼리 소통을 유도해 서로를 이해하고 타인의 의견을 존중하는 자세를 배웁니다,활동 과정 중 주어진 문제를 팀원들과 해결하면서 팀워크와 리더쉽의 중요성을 경험 하게 됩니다 ,학생들에게 앞으로 남은 학교생활에 대한 동기부여와 진로에 대한 생각을 하게 합니다">
+                                    <span class="help-block" style="color:red">* 반드시 , (콤마)로 구분해 주세요</span>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </section>
+                <!-- end: page -->
+            </section>
+
+    </section>
+
+
+    <!-- Vendor -->
+    <script src="assets/vendor/jquery/jquery.js"></script>
+    <script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="assets/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="assets/vendor/jquery-placeholder/jquery-placeholder.js"></script>
+
+    <!-- Specific Page Vendor -->
+    <script src="assets/vendor/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/vendor/jqueryui-touch-punch/jqueryui-touch-punch.js"></script>
+    <script src="assets/vendor/jquery-appear/jquery-appear.js"></script>
+    <script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="assets/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="assets/vendor/flot/jquery.flot.js"></script>
+    <script src="assets/vendor/flot.tooltip/flot.tooltip.js"></script>
+    <script src="assets/vendor/flot/jquery.flot.pie.js"></script>
+    <script src="assets/vendor/flot/jquery.flot.categories.js"></script>
+    <script src="assets/vendor/flot/jquery.flot.resize.js"></script>
+    <script src="assets/vendor/jquery-sparkline/jquery-sparkline.js"></script>
+    <script src="assets/vendor/raphael/raphael.js"></script>
+    <script src="assets/vendor/morris.js/morris.js"></script>
+    <script src="assets/vendor/gauge/gauge.js"></script>
+    <script src="assets/vendor/snap.svg/snap.svg.js"></script>
+    <script src="assets/vendor/liquid-meter/liquid.meter.js"></script>
+    <script src="assets/vendor/jqvmap/jquery.vmap.js"></script>
+    <script src="assets/vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+    <script src="assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+    <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+    
+    <script src="assets/vendor/select2/js/select2.js"></script>
+    
+    <script src="assets/vendor/jquery-maskedinput/jquery.maskedinput.js"></script>
+    <script src="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    <script src="assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script src="assets/vendor/bootstrap-timepicker/bootstrap-timepicker.js"></script>
+    <script src="assets/vendor/fuelux/js/spinner.js"></script>
+    <script src="assets/vendor/dropzone/dropzone.js"></script>
+    <script src="assets/vendor/bootstrap-markdown/js/markdown.js"></script>
+    <script src="assets/vendor/bootstrap-markdown/js/to-markdown.js"></script>
+    <script src="assets/vendor/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+    <script src="assets/vendor/codemirror/lib/codemirror.js"></script>
+    <script src="assets/vendor/codemirror/addon/selection/active-line.js"></script>
+    <script src="assets/vendor/codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="assets/vendor/codemirror/mode/javascript/javascript.js"></script>
+    <script src="assets/vendor/codemirror/mode/xml/xml.js"></script>
+    <script src="assets/vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="assets/vendor/codemirror/mode/css/css.js"></script>
+    <script src="assets/vendor/summernote/summernote.js"></script>
+    <script src="assets/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
+    <script src="assets/vendor/ios7-switch/ios7-switch.js"></script>
+    <script src="assets/vendor/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+    <script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="assets/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    
+    <!-- Specific Page Vendor -->
+    <script src="assets/vendor/isotope/isotope.js"></script>
+    <script src="assets/vendor/jstree/jstree.js"></script>
+    <script src="assets/vendor/autosize/autosize.js"></script>
+    <script src="assets/vendor/bootstrap-fileupload/bootstrap-fileupload.min.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="assets/javascripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="assets/javascripts/theme.custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="assets/javascripts/theme.init.js"></script>
+
+    <!-- Examples -->
+    <script src="assets/javascripts/dashboard/examples.dashboard.js"></script>
+
+</body>
+
+</html>
